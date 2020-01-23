@@ -1,3 +1,9 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+
+
 int hw46()
 {
 	string a;
