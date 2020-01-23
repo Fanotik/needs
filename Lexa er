@@ -19,16 +19,19 @@ int main()
 	vec.push_back(1);
 	vec.push_back(x);
 	vec.push_back(x * x * x);
-	while (abs(vec.at(k) - vec.at(k - 1)) >= e && f == 0)
+	bool fa = 0;
+	while (abs(vec.at(k) - vec.at(k - 1)) >= e && f==0)
 	{
 		k++;
-		vec.push_back((12. - vec.at(k - 1) * x) / (vec.at(k - 2) * vec.at(k - 2) + sqrt(abs(((vec.at(k - 3)))))));
-		cout << k << " " << vec.at(k) << endl;
+		vec.push_back((12. - vec.at(k - 1) * x) / (vec.at(k - 2) * vec.at(k - 2) + sqrt(vec.at(k - 3))));
 		
-		if (vec.at(k - 3) < 0 || (vec.at(k - 2) * vec.at(k - 2) + sqrt(abs((vec.at(k - 3))))) == 0)
+		if ((vec.at(k-3) < 0) || (vec.at(k - 2) * vec.at(k - 2) + sqrt(vec.at(k - 3)) == 0))
 			f = 1;
-		if(f == 0)
-			cout << "Znamenatel " << (vec.at(k - 2) * vec.at(k - 2) + sqrt(abs(vec.at(k - 3)))) << endl;
+		if (f == 0)
+		{
+			cout << "Znamenatel " << (vec.at(k - 3) < 0 || vec.at(k - 2) * vec.at(k - 2) + sqrt(abs(vec.at(k - 3)))) << endl;
+			cout << k << " " << vec.at(k) << endl;
+		}
 	}
 	if (f == 1)
 		cout << "ERROR";
