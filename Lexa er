@@ -22,8 +22,8 @@ int main()
 	while (abs(vec.at(k) - vec.at(k - 1)) >= e && f==0)
 	{
 		k++;
-		vec.push_back((12. - vec.at(k - 1) * x) / (vec.at(k - 2) * vec.at(k - 2) + sqrt(vec.at(k - 3))));
-		if ((vec.at(k-3) < 0) || (vec.at(k - 2) * vec.at(k - 2) + sqrt(vec.at(k - 3)) == 0))
+		vec.push_back((12. - vec.at(k - 1) * x) / (vec.at(k - 2) * vec.at(k - 2) + sqrt(abs(vec.at(k - 3)))));
+		if ((vec.at(k - 2) * vec.at(k - 2) + sqrt(vec.at(k - 3)) == 0)
 			f = 1;
 		if (f == 0)
 		{
