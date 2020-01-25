@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int t[6], sec;
+cin >> sec;
+t[0]=sec%60%10;
+t[1]=sec%60/10;
+t[2]=sec/60%60%10;
+t[3]=sec/60%60/10;
+t[4]=sec/3600;
+cout << t[4] << ":"<< t[3] << t[2] << ":"<< t[1] << t[0];
+return 0;
+}
