@@ -5,7 +5,7 @@
 #include <cstring>
 #include <string>
 #include <signal.h>
-#include <errno.h>
+#include <conio.h>
 
 #if defined(max)
 #undef max
@@ -16,20 +16,52 @@
 
 using namespace std;
 
-int Check()//Check Digit
+/*int Check()//Check Digit
 {
+	rtn:
+	cin.clear();
 	string str;
 	getline(cin, str);
+	if (str == "_Chcount = 0 ")
+	{
+		str.clear();
+	}
+	for (int i = 0; i < str.length(); i++)
+		if (str[i] == '\\')
+			str.clear();
 	int d = atoi(str.c_str());
+	if (atoi(str.c_str()))
+		cout << "ok";
+	else str.clear();
 	if (d < 2 || d > 8)
+	{
 		cout << "Ошибка. Повторите ввод." << endl;
+		cin.clear();
+	}
 	while (d < 2 || d > 8)
 	{
+		cin.clear();
 		getline(cin, str);
-		 d = atoi(str.c_str());
-		 if(d < 2 || d > 8)
-			 cout << "Ошибка. Повторите ввод." << endl;
+		d = atoi(str.c_str());
+		if (d < 2 || d > 8)
+			cout << "Ошибка. Повторите ввод." << endl;
 	}
+	return d;
+}*/
+
+
+int ch_int()
+{
+	string str;
+	int d;
+	getline(cin, str);
+	while (str.length() > 3 || str.length() < 1)
+	{
+		cout << "Ошибка. Повторите ввод." << endl;
+		cin.clear();
+		getline(cin, str);
+	}
+	d = atoi(str.c_str());
 	return d;
 }
 
@@ -54,11 +86,12 @@ char CheckCH()//Check Answer
 int checkin()//Check Str
 {
 	int l;
-	l = Check();
-	
+	l = ch_int();
+
 	if (l < 2 || l > 8)
 	{
 		cout << "Ошибка. Повторите ввод." << endl;
+		cin.clear();
 		checkin();
 	}
 	return l;
@@ -70,7 +103,7 @@ int massive(bool fa)
 	string str;
 	int k = 0, c = 0, h = 0;
 	bool f = 0, fd = 0, fs = 0;
-	getline(cin,str);
+	getline(cin, str);
 	for (int i = 0; i < str.length(); i++)
 		if (str[i] == ' ')
 			f = 1;
